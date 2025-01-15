@@ -15,7 +15,7 @@ const RestaurantInfo = (restaurant) => {
             {restaurant?.name}
           </h2>
           <p className="overflow-hidden whitespace-nowrap text-[15px] max-w-[538px]">
-            {restaurant?.cuisines.join(", ")}
+            {restaurant?.cuisines?.join(", ")}
           </p>
           <div className="flex mt-5 justify-between items-center text-sm font-semibold pb-2.5 max-w-[342px] mob:text-xs mob:font-normal">
             <div className="flex items-center px-1 py-0 gap-1">
@@ -23,7 +23,7 @@ const RestaurantInfo = (restaurant) => {
               <span>{restaurant?.avgRating}</span>
             </div>
             <div>|</div>
-            <div>{restaurant?.sla.slaString}</div>
+            <div>{restaurant?.sla?.slaString}</div>
             <div>|</div>
             <div>{restaurant?.costForTwoMsg}</div>
           </div>

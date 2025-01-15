@@ -3,14 +3,14 @@ import MenuItem from "./MenuItem.js";
 import { SlArrowDown, SlArrowUp } from "react-icons/sl";
 
 const RestaurantItemCategory = ({ itemCategory }) => {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
 
   const toggleView = () => {
     setIsVisible(!isVisible);
   };
 
   return (
-    <div className="p-5">
+    <div className="RestaurantItemCategory p-5">
       <div className="flex items-center justify-between">
         <h3 className="font-bold text-lg cursor-pointer" onClick={toggleView}>
           {itemCategory.title} ({itemCategory.itemCards.length})
@@ -32,4 +32,4 @@ const RestaurantItemCategory = ({ itemCategory }) => {
   );
 };
 
-export default RestaurantItemCategory
+export default RestaurantItemCategory;

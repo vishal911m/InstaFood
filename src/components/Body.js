@@ -25,14 +25,19 @@ const Body = () => {
     try {
       /* Live Data */
       const response = await fetch(GET_RESTAURANTS_LIST);
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
       const res_data = await response.json();
+      console.log("Fetched restaurant data:", res_data);    
       
-  
       /* Mock Data */ 
       //const res_data = restaurantList;
 
-      setAllRestaurants(res_data?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-      setFilteredRestaurants(res_data?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+      setAllRestaurants(res_data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+      setFilteredRestaurants(res_data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     } catch (error) {
       console.log(error);
     }
@@ -89,7 +94,7 @@ if (!allRestaurants) {
   return null;
 }
 return (
-    <div className= "container">
+    <div className= "Body container">
       <div className="flex justify-start mob:flex-col">
         <div className="flex justify-evenly min-w-[500px] mob:min-w-[375px] h-[100px] mob:h-[50px] items-center m-auto"> 
           <input type="text" placeholder=" Search for restaurant" value={searchText}

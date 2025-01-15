@@ -15,7 +15,9 @@ const useRestaurant = (resId) => {
       /* Live Data */
       const response = await fetch(GET_RESTAURANT_MENU + resId);
       const res_data = await response.json();
-      const menuItemsList = res_data.data.cards[2]["groupedCard"].cardGroupMap.REGULAR.cards;
+      console.log("API response:", res_data);
+      const menuItemsList = res_data.data.cards[4]["groupedCard"].cardGroupMap.REGULAR.cards;
+      // const itemCategory = "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory";
       const itemCategory = "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory";
       const NestedItemCategory = "type.googleapis.com/swiggy.presentation.food.v2.NestedItemCategory";
 
@@ -29,8 +31,9 @@ const useRestaurant = (resId) => {
       })
 
       const modifiedData = {
-        info : res_data.data.cards[0].card.card.info,
-        menu : menu.filter(value => value !== undefined)
+        info : res_data.data.cards[2].card.card.info,
+        menu : menu.filter(value => value !== undefined), // removes "undefined" menu items from the list
+        menu1: menu,
       };
 
       setRestaurant(modifiedData)
@@ -38,6 +41,12 @@ const useRestaurant = (resId) => {
       console.log(error);
     }
   };
+    // Log the restaurant state whenever it changes
+    useEffect(() => {
+      if (restaurant) {
+        console.log("Restaurant state:", restaurant);
+      }
+    }, [restaurant]);
 
   return restaurant;
 

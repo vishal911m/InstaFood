@@ -15,10 +15,9 @@ const RestaurantDetails = () => {
   return !restaurant ? (
     <MenuShimmer />
   ) : (
-    <div className="container">
+    <div className="RestaurantDetails container">
       <RestaurantInfo {...restaurant.info} />
       <RestaurantMenuList menu={restaurant.menu} />
-
     </div>
   );
 };

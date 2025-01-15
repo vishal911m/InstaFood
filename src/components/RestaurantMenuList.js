@@ -15,7 +15,7 @@ const cartItems = useSelector((store) => store.cart.items);
 const getItemTotal = useItemTotal();
 
   return (
-    <div className="flex justify-center sm:flex-col xsm:flex-col mob:flex-col">
+    <div className="RestaurantMenuList flex justify-center sm:flex-col xsm:flex-col mob:flex-col">
       <div className="mt-7 xl:w-[70%] lg:w-[70%] md:w-[70%] card-container">
       {menu.map((item, index) => (
         <div key={index}>

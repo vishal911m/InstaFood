@@ -5,7 +5,7 @@ import { useState } from "react";
 
 const MenuItem = ({ item }) => {
 
-  const { id, name, description, price, imageId } = item;
+  const { id, name, description, price, defaultPrice, imageId } = item;
 
   const dispatch = useDispatch();
   const [itemCount, setItemCount] = useState(0);
@@ -22,20 +22,26 @@ const MenuItem = ({ item }) => {
     setItemCount(updatedCount);
   };
 
+  const displayPrice = price > 0 ? price : defaultPrice ;
+  // const displayPrice =
+  //   price && price > 0 ? price : defaultPrice && defaultPrice > 0 ? defaultPrice : null;
+
   return (
     <div
-      className="flex justify-between basis-[848px] max-h-[180px] p-5 border-b border-gray"
+      className="MenuItem flex justify-between basis-[848px] max-h-[180px] p-5 border-b border-gray"
       key={id}
     >
-      <div className="flex flex-col basis-[400px]">
+      < div className="flex flex-col basis-[400px]">
         <h3 className="font-bold text-lg w-3/5">{name}</h3>
         <p className="mt-1 text-base font-normal">
-          {price > 0 ? "₹ " + item.price / 100 : " "}{" "}
+          {/* {price > 0 ? "₹ " + item.price / 100 : " "}{" "} */}
+          {displayPrice > 0 ? "₹ " + displayPrice/100 : " "} {" "} 
         </p>
         <p className="mt-3.5 leading-5 text-gray-desc w-4/5 text-base overflow-hidden ">
           {description}
         </p>
       </div>
+      
       <div className="flex flex-col justify-center items-center w-[118px] h-[150px]">
         {imageId && (
           <img
