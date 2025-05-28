@@ -1,44 +1,37 @@
-//Config Driven UI - Mock Data from API
-
-/* CDN for Restaurant, Menu items and Fallback Images  */
-// export const RES_IMG_CDN =
-//   "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
+// Image CDN for restaurant cards and menu items
 export const RES_IMG_CDN =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
-// export const ITEM_IMG_CDN =
-//   "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/";
+
 export const ITEM_IMG_CDN =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
-  
 
+// Fallback image for cart
 export const CART_FALLBACK_IMG = 
   "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/2xempty_cart_yfxml0";
 
-/* PONDY LOCATION URL */
-export const GET_RESTAURANTS_LIST = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=11.9343684&lng=79.8255499&page_type=DESKTOP_WEB_LISTING";
-// export const GET_RESTAURANT_MENU = "https://www.swiggy.com/dapi/menu/v4/full?lat=11.9343684&lng=79.8255499&menuId=";
-export const GET_RESTAURANT_MENU = 
-"https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=11.9343684&lng=79.8255499&restaurantId=";
+// 🌐 Use Local Proxy Server to Bypass CORS
+export const GET_RESTAURANTS_LIST =
+  "http://localhost:3000/api/restaurants?lat=11.9343684&lng=79.8255499";
 
-/* BANGALORE LOCATION URL */
-// export const GET_RESTAURANTS_LIST = "https://instafood.onrender.com/api/restaurants?lat=12.9351929&lng=77.62448069999999";
-// export const GET_RESTAURANT_MENU = "https://instafood.onrender.com/api/menu?lat=12.9351929&lng=77.62448069999999&restaurantId=";
+export const GET_RESTAURANT_MENU =
+  "http://localhost:3000/api/menu?lat=11.9343684&lng=79.8255499&restaurantId=";
 
-/* Shimmer - Number of cards & items to be displayed */
+// Shimmer loader config
 export const SHIMMER_RES_CARDS_COUNT = 8;
 export const SHIMMER_MENU_ITEMS_COUNT = 4;
 
-/* Github - username, blog name */
+// GitHub Config
 export const GITHUB_USER_NAME = "HarshithaSolai";
 export const GITHUB_BLOG_NAME = "Learn-React-With-Harshi";
 
-/* Github API getuser */
+// GitHub API
 export const GITHUB_GET_USER = "https://api.github.com/users/";
 
-/* Social Media Links */
+// Social Media
 export const GITHUB_LINK = "https://github.com/HarshithaSolai";
 export const LINKEDIN_LINK = "https://www.linkedin.com/in/harshitha-sv/";
 export const GMAIL_LINK = "mailto:solaiharshitha0@gmail.com";
+
 
 /* User Address - Checkout  */
 export const USERS_ADDRESS_LIST = [
