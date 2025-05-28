@@ -9,12 +9,19 @@ export const ITEM_IMG_CDN =
 export const CART_FALLBACK_IMG = 
   "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/2xempty_cart_yfxml0";
 
+// // 🌐 Use Local Proxy Server to Bypass CORS
+// export const GET_RESTAURANTS_LIST =
+//   "http://localhost:3000/api/restaurants?lat=11.9343684&lng=79.8255499";
+
+// export const GET_RESTAURANT_MENU =
+//   "http://localhost:3000/api/menu?lat=11.9343684&lng=79.8255499&restaurantId=";
+
 // 🌐 Use Local Proxy Server to Bypass CORS
 export const GET_RESTAURANTS_LIST =
-  "http://localhost:3000/api/restaurants?lat=11.9343684&lng=79.8255499";
+  "https://instafood-u4fm.onrender.com/api/restaurants?lat=11.9343684&lng=79.8255499";
 
 export const GET_RESTAURANT_MENU =
-  "http://localhost:3000/api/menu?lat=11.9343684&lng=79.8255499&restaurantId=";
+  "https://instafood-u4fm.onrender.com/api/menu?lat=11.9343684&lng=79.8255499&restaurantId=";
 
 // Shimmer loader config
 export const SHIMMER_RES_CARDS_COUNT = 8;
