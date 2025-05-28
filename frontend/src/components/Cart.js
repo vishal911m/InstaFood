@@ -47,7 +47,8 @@ const Cart = () => {
                 </div>
 
                 <p className="font-thin text-sm">
-                  {"₹ " + (item.price / 100) * item.quantity}
+                  {/* {"₹ " + (item.price / 100) * item.quantity} */}
+                  {"₹ " + ((item.price ?? item.defaultPrice ?? 0) / 100) * item.quantity}
                 </p>
               </div>
             </div>
@@ -71,7 +72,7 @@ const Cart = () => {
                   {address.addressType}
                 </h2>
                 <p className="text-sm text-bio text-ellipsis">
-                  {address.addressDescription}
+                  {address.addressDescription}  
                 </p>
               </div>
             )}

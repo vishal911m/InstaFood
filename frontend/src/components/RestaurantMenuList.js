@@ -30,7 +30,7 @@ const getItemTotal = useItemTotal();
 
       <div className="basis-[30%]">
       {Object.values(cartItems).length > 0 ? (
-            <div className=" card-container basis-[298px] p-10">
+            <div className="cart card-container basis-[298px] p-10">
               <h1 className="font-bold text-lg mt-2.5">Cart</h1>
 
               <p className="text-gray-count">
@@ -39,7 +39,7 @@ const getItemTotal = useItemTotal();
 
               {Object.values(cartItems).map((item) => {
                 return (
-                  <div className="flex items-center mt-2 justify-between">
+                  <div className="cart-items-map flex items-center mt-2 justify-between">
                     <p className="w-40 text-sm">{item.name}</p>
                     <div className="w-30 px-5">
                       <ItemQuantity item={item} key={item.id} />
