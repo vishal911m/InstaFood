@@ -7,14 +7,11 @@ import { useSelector } from "react-redux";
 
 import { UserAuth } from "../utils/context/AuthContext";
 
+// ✅ Removed the "About" link
 const navLinks = [
   {
     title: "Home",
     path: "/",
-  },
-  {
-    title: "About",
-    path: "/about",
   },
   {
     title: "Instamart",
@@ -29,8 +26,7 @@ const navLinks = [
 export const Title = () => {
   return (
     <Link to="/">
-      {" "}
-      <img className="logo ml-2.5 w-[70px]" alt={"logo"} src={logo} />{" "}
+      <img className="logo ml-2.5 w-[70px]" alt={"logo"} src={logo} />
     </Link>
   );
 };
@@ -39,18 +35,13 @@ export const Intro = () => {
   const { user } = UserAuth();
   let name;
   if (user) {
-    if (user.displayName != null) {
-      name = user.displayName;
-    } else {
-      name = user.email;
-    }
+    name = user.displayName != null ? user.displayName : user.email;
   }
 
   return (
     <div className="flex justify-center items-center">
       <span className="py-2.5 px-1 mt-2.5 mr-1 font-bold text-green">
-        {" "}
-        {user ? `Hello ${name} ` : "Please Login"} !!!
+        {user ? `Hello ${name}` : "Please Login"} !!!
       </span>
     </div>
   );
@@ -59,10 +50,8 @@ export const Intro = () => {
 export const NavComponent = () => {
   const { user, logOut } = UserAuth();
   const navigate = useNavigate();
-  console.log(user);
   const isOnline = useOnline();
   const totalItemsCount = useSelector((store) => store.cart.totalItemsCount);
-  console.log("Header:", totalItemsCount);
   const [menuActive, setMenuActive] = useState(false);
 
   const closeMenu = () => {
@@ -88,14 +77,14 @@ export const NavComponent = () => {
   return (
     <div className="flex items-center justify-between">
       <div
-        className={`menu-content-container flex items-center pr-7  ${
+        className={`menu-content-container flex items-center pr-7 ${
           menuActive && "active"
         }`}
       >
         <ul
           className={`h-full lg:flex xl:flex md:flex items-center pr-5 ${
             !menuActive && "hidden"
-          }  ${menuActive && "flex flex-col flex-start "}`}
+          } ${menuActive && "flex flex-col flex-start"}`}
         >
           {navLinks.map((link, index) => (
             <li key={index} className="p-2.5">
@@ -106,14 +95,12 @@ export const NavComponent = () => {
           ))}
           <li className="p-2.5">
             <Link to="/cart">
-              {" "}
               <button className="nav--btn">
-                {" "}
                 Cart{" "}
                 <span className="text-orange font-bold pl-1">
                   {totalItemsCount}
-                </span>{" "}
-              </button>{" "}
+                </span>
+              </button>
             </Link>
           </li>
 
@@ -124,17 +111,15 @@ export const NavComponent = () => {
                 user ? handleSignOut() : handleSignIn();
               }}
             >
-              {" "}
-              {user ? "Logout  " : "Login  "}
+              {user ? "Logout" : "Login"}{" "}
               <span className={isOnline ? "text-green" : "text-red"}>●</span>
             </button>
           </li>
         </ul>
       </div>
       <AiOutlineMenu
-        className="lg:hidden xl:hidden md:hidden flex w-[65px] text-base text-blue-dark cursor-pointer "
+        className="lg:hidden xl:hidden md:hidden flex w-[65px] text-base text-blue-dark cursor-pointer"
         onClick={() => {
-          console.log("icon");
           closeMenu();
           setMenuActive(!menuActive);
         }}
